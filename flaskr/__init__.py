@@ -1,5 +1,6 @@
 from flask import Flask
 import os
+from . import db
 
 
 ##application factory
@@ -33,6 +34,7 @@ def create_app(test_config=None):
     def about():
         return "<h3> about us page </h3>"
     
+    db.init_app(app)
     return app
 
 
