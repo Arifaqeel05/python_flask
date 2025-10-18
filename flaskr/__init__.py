@@ -1,6 +1,7 @@
 from flask import Flask
 import os
-from . import db
+from . import db, auth
+
 
 
 ##application factory
@@ -35,6 +36,7 @@ def create_app(test_config=None):
         return "<h3> about us page </h3>"
     
     db.init_app(app)
+    app.register_blueprint(auth.bp)
     return app
 
 
